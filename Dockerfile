@@ -15,6 +15,28 @@ RUN apt update && apt install -y \
 # Hostname
 RUN echo "HackerWhale" > /etc/hostname
 
+# Expansion script argument
+ARG EXPANSION_SCRIPT_URL
+ARG EXPANSION_SCRIPT_LOCAL
+ENV EXPANSION_SCRIPT_URL=${EXPANSION_SCRIPT_URL}
+ENV EXPANSION_SCRIPT_LOCAL=${EXPANSION_SCRIPT_LOCAL}
+
+COPY ${EXPANSION_SCRIPT_LOCAL} /tmp/expansion_script.sh
+
+RUN if [ ! -z "$EXPANSION_SCRIPT_URL" ]; then \
+    curl -sSL $EXPANSION_SCRIPT_URL -o /tmp/expansion_script.sh && \
+    chmod +x /tmp/expansion_script.sh && \
+    /tmp/expansion_script.sh; \
+    elif [ -f /tmp/expansion_script.sh ]; then \
+    chmod +x /tmp/expansion_script.sh && \
+    /tmp/expansion_script.sh; \
+    else \
+    echo "No expansion script provided, executing default configuration."; \
+    # Add the default configuration you want to execute here
+    apt-get update && apt-get install -y nodejs npm; \
+    echo "Default configuration completed."; \
+    fi
+
 # Instalando o ohmyzsh e configurando o zsh como bash padrão
 # https://ohmyz.sh/#install
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
@@ -34,13 +56,6 @@ RUN git clone https://github.com/gpakosz/.tmux.git ~/.tmux && \
     ln -s -f ~/.tmux/.tmux.conf ~/.tmux.conf && \
     cp ~/.tmux/.tmux.conf.local ~/
 
-# Copia o script para o scontainer
-#COPY auxiliar_scripts/docker_script.sh /usr/local/bin/docker_script.sh
-
-# Define permissões de execução e executa o script
-# RUN chmod +x /usr/local/bin/docker_script.sh && \
-#     /usr/local/bin/docker_script.sh
-
 
 #Limpeza de cache para diminuir a imagem
 #RUN rm -rf /var/lib/apt/lists/*
@@ -49,3 +64,7 @@ WORKDIR /workdir
 
 # Para manter o container em execução após saídas
 CMD ["tail", "-f", "/dev/null"]
+
+# docker build --build-arg EXPANSION_SCRIPT_LOCAL=expansion_script.sh -t hackerwhale .
+# docker build --build-arg EXPANSION_SCRIPT_URL=https://github.com/0xtiago/expansion_script.sh -t hackerwhale .
+
