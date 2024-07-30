@@ -12,4 +12,3 @@ echo "[+] Apache"
 apt install apache2 -y
 apachectl -v
 systemctl start apache2
-curl -I http://localhost
