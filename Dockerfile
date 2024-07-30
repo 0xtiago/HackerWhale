@@ -1,19 +1,23 @@
 FROM ubuntu:latest
 
-RUN apt update && apt install -y \
+# Hostname
+RUN echo "HackerWhale" > /etc/hostname
+
+
+#Default package set
+ENV DEFAULT_PACKAGE_SET="apt update && apt install -y \
     zsh \
     git \
     curl \
     wget \
+    lsb-release \
+    snapd \
     python3 \
     python3-pip \
     python-is-python3 \
     golang \
     vim \
-    tmux
-
-# Hostname
-RUN echo "HackerWhale" > /etc/hostname
+    tmux"
 
 # Expansion script argument
 ARG EXPANSION_SCRIPT_URL
@@ -21,19 +25,21 @@ ARG EXPANSION_SCRIPT_LOCAL
 ENV EXPANSION_SCRIPT_URL=${EXPANSION_SCRIPT_URL}
 ENV EXPANSION_SCRIPT_LOCAL=${EXPANSION_SCRIPT_LOCAL}
 
+# Copy the local script into the container, if provided
 COPY ${EXPANSION_SCRIPT_LOCAL} /tmp/expansion_script.sh
 
 RUN if [ ! -z "$EXPANSION_SCRIPT_URL" ]; then \
+    eval ${DEFAULT_PACKAGE_SET} && \
     curl -sSL $EXPANSION_SCRIPT_URL -o /tmp/expansion_script.sh && \
     chmod +x /tmp/expansion_script.sh && \
     /tmp/expansion_script.sh; \
     elif [ -f /tmp/expansion_script.sh ]; then \
+    eval ${DEFAULT_PACKAGE_SET} && \
     chmod +x /tmp/expansion_script.sh && \
     /tmp/expansion_script.sh; \
     else \
     echo "No expansion script provided, executing default configuration."; \
-    # Add the default configuration you want to execute here
-    apt-get update && apt-get install -y nodejs npm; \
+    eval ${DEFAULT_PACKAGE_SET} && \
     echo "Default configuration completed."; \
     fi
 

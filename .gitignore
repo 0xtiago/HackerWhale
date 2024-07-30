@@ -163,3 +163,7 @@ cython_debug/
 
 #Outros
 .DS_Store
+.zsh_history_docker
+.zsh_history
+.bash_history
+.bash_history_docker

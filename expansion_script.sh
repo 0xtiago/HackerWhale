@@ -7,6 +7,16 @@ LOGFILE="/root/hackerwhale_expansion.log"
 exec > >(tee -a $LOGFILE) 2>&1
 #FIM DO GERA LOG DE TUDO ################################################
 
+
+#VALIDA VERSAO DO LINUX
+LINUXRELEASE=$(lsb_release -d | awk '{print $2,$3}')
+if [[ $LINUXRELEASE =~ "Ubuntu 24." ]]; then
+    PIPCOMMAND="pip install --break-system-packages"
+else
+    PIPCOMMAND="pip install"
+fi
+
+
 #INICIO DE INSTALACAO DE PRE-REQUISITOS #################################
 setupEnvironment() {
     #Cores
@@ -156,7 +166,7 @@ Dnsx(){
     go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 }
 
-DNSValidaor(){
+DNSValidator(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     cd ${TOOLSPATH}
     git clone https://github.com/vortexau/dnsvalidator.git
@@ -503,6 +513,7 @@ callInstallTools(){
     DalFox
     Dirsearch
     Dnsx
+    DNSValidator
     ffuf
     Findomains
     Gau
