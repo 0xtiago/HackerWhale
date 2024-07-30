@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt update
+apt update
 
 
 
