@@ -30,9 +30,10 @@ COPY ${EXPANSION_SCRIPT_LOCAL} /tmp/expansion_script.sh
 
 RUN if [ ! -z "$EXPANSION_SCRIPT_URL" ]; then \
     eval ${DEFAULT_PACKAGE_SET} && \
-    curl -sSL $EXPANSION_SCRIPT_URL -o /tmp/expansion_script.sh && \
-    chmod +x /tmp/expansion_script.sh && \
-    /tmp/expansion_script.sh; \
+    curl -sSL $EXPANSION_SCRIPT_URL | bash; \
+    # curl -sSL $EXPANSION_SCRIPT_URL -o /tmp/expansion_script.sh && \
+    # chmod +x /tmp/expansion_script.sh && \
+    # /tmp/expansion_script.sh; \
     elif [ -f /tmp/expansion_script.sh ]; then \
     eval ${DEFAULT_PACKAGE_SET} && \
     chmod +x /tmp/expansion_script.sh && \
@@ -53,7 +54,8 @@ RUN echo 'HISTFILE=/workdir/.zsh_history_docker' >> /root/.zshrc && \
     echo 'HISTSIZE=1000' >> /root/.zshrc && \
     echo 'SAVEHIST=1000' >> /root/.zshrc && \
     echo 'setopt inc_append_history' >> /root/.zshrc && \
-    echo 'setopt share_history' >> /root/.zshrc
+    echo 'setopt share_history' >> /root/.zshrc \
+    echo 'export PATH=$PATH:/root/go/bin' >> /root/.zshrc
 
 RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="refined"/' /root/.zshrc
 

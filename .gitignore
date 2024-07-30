@@ -162,6 +162,7 @@ cython_debug/
 .idea/
 
 #Outros
+playground/
 .DS_Store
 .zsh_history_docker
 .zsh_history
