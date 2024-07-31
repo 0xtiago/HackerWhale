@@ -54,7 +54,7 @@ RUN echo 'HISTFILE=/workdir/.zsh_history_docker' >> /root/.zshrc && \
     echo 'HISTSIZE=1000' >> /root/.zshrc && \
     echo 'SAVEHIST=1000' >> /root/.zshrc && \
     echo 'setopt inc_append_history' >> /root/.zshrc && \
-    echo 'setopt share_history' >> /root/.zshrc \
+    echo 'setopt share_history' >> /root/.zshrc && \
     echo 'export PATH=$PATH:/root/go/bin' >> /root/.zshrc
 
 RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="refined"/' /root/.zshrc
