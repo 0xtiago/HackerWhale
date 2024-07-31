@@ -174,3 +174,6 @@ burp_cert.crt
 burp_cert.der
 burp_cert.cer
 ZAPCACert.cer
+ZAPCACert.crt
+zap_root_ca.cer
+zap_root_ca.crt
