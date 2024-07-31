@@ -1,4 +1,6 @@
 #!/bin/bash
+# expansion_script.sh
+# tiagotavares.io | github.com/0xtiago
 
 echo "HackerWhale - Expansion script is being executed."
 
