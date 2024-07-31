@@ -1,7 +1,8 @@
 FEATURES
     ✔️ Dockerfile
-    ◻ Local Script Expansion
-    ◻ Remote Script Expansion
+    ✔️ Local Script Expansion
+    ✔️ Remote Script Expansion
     ◻ Kubernetes
+    ◻ DockerHub image
 
 DOCUMENTATION
