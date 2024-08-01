@@ -66,7 +66,7 @@ RUN git clone https://github.com/gpakosz/.tmux.git ~/.tmux && \
 
 
 #Limpeza de cache para diminuir a imagem
-#RUN rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workdir
 

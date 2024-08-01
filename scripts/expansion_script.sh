@@ -97,7 +97,7 @@ Alterx(){
 
 Amass(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    snap install amass
+    go install -v github.com/owasp-amass/amass/v4/...@master
 }
 
 Anew(){
