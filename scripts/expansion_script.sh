@@ -140,10 +140,10 @@ ChaosClient(){
     go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
 }
 
-Chekov(){
-    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    $PIPCOMMAND checkov
-}
+# Chekov(){
+#     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+#     $PIPCOMMAND checkov
+# }
 
 Collector(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
@@ -316,27 +316,27 @@ Kiterunner(){
     ln -s ${TOOLSPATH}/kr ${DIRBINPATH}/kr
 }
 
-Kube-bench(){
-    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    cd ${TOOLSPATH} 
-    git clone git@github.com:aquasecurity/kube-bench.git
-    cd kube-bench
-    go get github.com/aquasecurity/kube-bench
-    go build -o kube-bench .
-    chmod +x kube-bench
-    ln -s ${TOOLSPATH}/kube-bench/kube-bench ${DIRBINPATH}/kube-bench
+# Kube-bench(){
+#     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+#     cd ${TOOLSPATH} 
+#     git clone https://github.com/aquasecurity/kube-bench
+#     cd kube-bench
+#     go get github.com/aquasecurity/kube-bench
+#     go build -o kube-bench .
+#     chmod +x kube-bench
+#     ln -s ${TOOLSPATH}/kube-bench/kube-bench ${DIRBINPATH}/kube-bench
     
-}
+# }
 
-Kube-hunter(){
-    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    $PIPCOMMAND kube-hunter
-}
+# Kube-hunter(){
+#     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+#     $PIPCOMMAND kube-hunter
+# }
 
-Kubelinter(){
-    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    go install golang.stackrox.io/kube-linter/cmd/kube-linter@latest
-}
+# Kubelinter(){
+#     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+#     go install golang.stackrox.io/kube-linter/cmd/kube-linter@latest
+# }
 
 LinkFinder(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
@@ -424,10 +424,10 @@ ParamSpider(){
     #ln -s ${TOOLSPATH}/ParamSpider/paramspider.py ${DIRBINPATH}/paramspider ## Já está sendo instalado
 }
 
-Prowler(){
-    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    $PIPCOMMAND prowler
-}
+# Prowler(){
+#     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+#     $PIPCOMMAND prowler
+# }
 
 
 PureDNS(){
@@ -481,35 +481,35 @@ Telegram-Send(){
     $PIPCOMMAND telegram-send
 }
 
-Terrascan1.19.1(){
-    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    BASE_URL="https://github.com/tenable/terrascan/releases/latest/download"
-    mkdir -p ${TOOLSPATH}/terrascan
-    cd ${TOOLSPATH}/terrascan
+# Terrascan1.19.1(){
+#     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+#     BASE_URL="https://github.com/tenable/terrascan/releases/latest/download"
+#     mkdir -p ${TOOLSPATH}/terrascan
+#     cd ${TOOLSPATH}/terrascan
 
-    if [ "$ARCH" == "x86_64" ]; then
-    FILE_NAME="terrascan_1.19.1_Linux_x86_64.tar.gz"
-    elif [ [ "$ARCH" == "aarch64" ] || [ "$ARCH" == "arm64" ] ]; then
-        FILE_NAME="terrascan_1.19.1_Linux_arm64.tar.gz"
-    else
-        echo "Arquitetura não suportada: $ARCH"
-    fi
+#     if [ "$ARCH" == "x86_64" ]; then
+#     FILE_NAME="terrascan_1.19.1_Linux_x86_64.tar.gz"
+#     elif [ [ "$ARCH" == "aarch64" ] || [ "$ARCH" == "arm64" ] ]; then
+#         FILE_NAME="terrascan_1.19.1_Linux_arm64.tar.gz"
+#     else
+#         echo "Arquitetura não suportada: $ARCH"
+#     fi
 
-    wget "$BASE_URL/$FILE_NAME"
-    tar xvzf $FILE_NAME
-    chmod +x terrascan
+#     wget "$BASE_URL/$FILE_NAME"
+#     tar xvzf $FILE_NAME
+#     chmod +x terrascan
 
-    ln -s ${TOOLSPATH}/terrascan/terrascan ${DIRBINPATH}/terrascan
-}
+#     ln -s ${TOOLSPATH}/terrascan/terrascan ${DIRBINPATH}/terrascan
+# }
 
-Trivy(){
-    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    sudo apt-get install wget apt-transport-https gnupg
-    wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
-    echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
-    sudo apt update
-    sudo apt install -y trivy
-}
+# Trivy(){
+#     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+#     sudo apt-get install wget apt-transport-https gnupg
+#     wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+#     echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+#     sudo apt update
+#     sudo apt install -y trivy
+# }
 
 TurboSearch(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
@@ -598,7 +598,7 @@ callInstallTools(){
     Burl
     Brutespray
     ChaosClient
-    Chekov
+    # Chekov
     Collector
     DalFox
     Dirsearch
@@ -623,9 +623,9 @@ callInstallTools(){
     JohnTheRipper
     JSScanner
     Kiterunner
-    Kube-bench
-    Kube-hunter
-    Kubelinter
+    # Kube-bench
+    # Kube-hunter
+    # Kubelinter
     LinkFinder
     Mapcidr
     Massdns
@@ -639,15 +639,15 @@ callInstallTools(){
     Nrich
     Nuclei
     ParamSpider
-    Prowler
+    # Prowler
     ShufleDNS
     Sqlmap
     Sub404
     Subfinder
     Subjs
     Telegram-Send
-    Terrascan1.19.1
-    Trivy
+    # Terrascan1.19.1
+    # Trivy
     TurboSearch
     Qsreplace
     Unfurl
