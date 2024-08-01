@@ -139,6 +139,11 @@ ChaosClient(){
     go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
 }
 
+Chekov(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    $PIPCOMMAND checkov
+}
+
 Collector(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     cd ${TOOLSPATH}
@@ -310,6 +315,13 @@ Kiterunner(){
     ln -s ${TOOLSPATH}/kr ${DIRBINPATH}/kr
 }
 
+Kube-hunter(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    $PIPCOMMAND kube-hunter
+}
+
+
+
 LinkFinder(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     cd ${TOOLSPATH}
@@ -398,7 +410,7 @@ ParamSpider(){
 
 Prowler(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-    pip install prowler
+    $PIPCOMMAND prowler
 }
 
 
@@ -540,6 +552,7 @@ callInstallTools(){
     Burl
     Brutespray
     ChaosClient
+    Chekov
     Collector
     DalFox
     Dirsearch
@@ -564,6 +577,8 @@ callInstallTools(){
     JohnTheRipper
     JSScanner
     Kiterunner
+    Kube-hunter
+    Kubelinter
     LinkFinder
     Mapcidr
     Massdns
