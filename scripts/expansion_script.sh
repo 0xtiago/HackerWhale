@@ -320,7 +320,10 @@ Kube-hunter(){
     $PIPCOMMAND kube-hunter
 }
 
-
+Kubelinter(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    go install golang.stackrox.io/kube-linter/cmd/kube-linter@latest
+}
 
 LinkFinder(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
@@ -465,6 +468,15 @@ Telegram-Send(){
     $PIPCOMMAND telegram-send
 }
 
+Trivy(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    sudo apt-get install wget apt-transport-https gnupg
+    wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+    echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+    sudo apt update
+    sudo apt install -y trivy
+}
+
 TurboSearch(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     $PIPCOMMAND --upgrade turbosearch
@@ -599,6 +611,7 @@ callInstallTools(){
     Subfinder
     Subjs
     Telegram-Send
+    Trivy
     TurboSearch
     Qsreplace
     Unfurl
