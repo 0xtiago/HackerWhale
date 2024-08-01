@@ -316,6 +316,18 @@ Kiterunner(){
     ln -s ${TOOLSPATH}/kr ${DIRBINPATH}/kr
 }
 
+Kube-bench(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    cd ${TOOLSPATH} 
+    git clone git@github.com:aquasecurity/kube-bench.git
+    cd kube-bench
+    go get github.com/aquasecurity/kube-bench
+    go build -o kube-bench .
+    chmod +x kube-bench
+    ln -s ${TOOLSPATH}/kube-bench/kube-bench ${DIRBINPATH}/kube-bench
+    
+}
+
 Kube-hunter(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     $PIPCOMMAND kube-hunter
@@ -611,6 +623,7 @@ callInstallTools(){
     JohnTheRipper
     JSScanner
     Kiterunner
+    Kube-bench
     Kube-hunter
     Kubelinter
     LinkFinder
