@@ -50,8 +50,7 @@ setupOSRequirements (){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     #Installing packages
     apt update 
-    apt install \
-    brutespray \
+    apt install -y \
     ca-certificates \
     curl \
     dos2unix \
@@ -64,26 +63,22 @@ setupOSRequirements (){
     gzip \
     htop \
     inetutils-ping \
-    john \
     jq \
     libpcap-dev \
     locate \
-    masscan \
     net-tools \
-    nmap \
     p7zip \
     prips \
     python3-pip \
     python-is-python3 \
     ruby-dev \
     snap \
-    sqlmap \
     tmux \
     vim \
     vim-nox \
     zip \
-    zsh \
-    -y
+    zsh 
+    
 }
 
 
@@ -132,6 +127,11 @@ Assetfinder(){
 Burl(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     go install -v github.com/tomnomnom/burl@latest
+}
+
+Brutespray(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install brutespray -y
 }
 
 ChaosClient(){
@@ -280,6 +280,11 @@ Httpx(){
     go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 }
 
+JohnTheRipper(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install -y john
+}
+
 JSScanner(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     cd ${TOOLSPATH}
@@ -329,6 +334,11 @@ Massdns(){
     cp -v ${TOOLSPATH}/massdns/bin/massdns ${DIRBINPATH}/massdns
 }
 
+Masscan(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install -y masscan
+}
+
 MegaPy(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     $PIPCOMMAND mega.py
@@ -342,10 +352,10 @@ Metabigor(){
 Metasploit(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     cd /tmp 
-    curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/metasploit-framework.gpg.key | sudo apt-key add -
-    sudo sh -c 'echo "deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid main" > /etc/apt/sources.list.d/metasploit-framework.list'
-    sudo apt update
-    sudo apt install -y metasploit-framework
+    curl https://raw.githubusercontent.com/rapid7/metasploit-framework/master/msf.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/msf-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/msf-archive-keyring.gpg] https://apt.metasploit.com/ focal main" | sudo tee /etc/apt/sources.list.d/metasploit-framework.list
+    apt update
+    apt install -y metasploit-framework
     msfupdate
 }
 
@@ -354,9 +364,14 @@ Naabu(){
     go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 }
 
+Nmap(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install -y nmap
+}
+
 Notify(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-   go install -v  github.com/projectdiscovery/notify/cmd/notify@latest
+    go install -v  github.com/projectdiscovery/notify/cmd/notify@latest
 }
 
 Nrich(){
@@ -388,14 +403,21 @@ PureDNS(){
 
 
 
+
 ShufleDNS(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     go install -v  github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest
 }
 
+Sqlmap(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install -y sqlmap
+}
+
+
 sslscan(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
-     apt install sslscan
+     apt install -y sslscan
 }
 
 
@@ -467,25 +489,25 @@ WPScan(){
 
 #INICIO DE CONFIGURACOES FINAIS #################################
 PosInstalacao(){
-    if [ -d "/root/go/bin" ]; then
-        echo -e "${RED}[+]Moving files from /root/go/bin to ${DIRBINPATH}${NC}"
-        mv /root/go/bin/* ${DIRBINPATH}
-    elif [ -d "/go/bin" ]; then
-        echo -e "${RED}[+]Moving files from /go/bin to ${DIRBINPATH}${NC}"
-        mv /go/bin/* ${DIRBINPATH}
-    elif [ -d "/home/$SUDO_USER/go/bin" ]; then
-        echo -e "${RED}[+]Moving files from /home/$SUDO_USER/go/bin to ${DIRBINPATH}${NC}"
-        mv /home/$SUDO_USER/go/bin/* ${DIRBINPATH}
-    else
-        echo -e "${RED}[+]Moving go binary not executed. Nothing to do.${NC}"
-    fi
+    # if [ -d "/root/go/bin" ]; then
+    #     echo -e "${RED}[+]Moving files from /root/go/bin to ${DIRBINPATH}${NC}"
+    #     mv /root/go/bin/* ${DIRBINPATH}
+    # elif [ -d "/go/bin" ]; then
+    #     echo -e "${RED}[+]Moving files from /go/bin to ${DIRBINPATH}${NC}"
+    #     mv /go/bin/* ${DIRBINPATH}
+    # elif [ -d "/home/$SUDO_USER/go/bin" ]; then
+    #     echo -e "${RED}[+]Moving files from /home/$SUDO_USER/go/bin to ${DIRBINPATH}${NC}"
+    #     mv /home/$SUDO_USER/go/bin/* ${DIRBINPATH}
+    # else
+    #     echo -e "${RED}[+]Moving go binary not executed. Nothing to do.${NC}"
+    # fi
 
-    ## Resolvendo problema da chave depreciada
-    cd /tmp
-    wget http://apt.metasploit.com/metasploit-framework.gpg.key
-    gpg --no-default-keyring --keyring ./metasploit-framework_keyring.gpg --import metasploit-framework.gpg.key
-    gpg --no-default-keyring --keyring ./metasploit-framework_keyring.gpg --export > ./metasploit-framework.gpg
-    mv ./metasploit-framework.gpg /etc/apt/trusted.gpg.d/
+    # ## Resolvendo problema da chave depreciada
+    # cd /tmp
+    # wget http://apt.metasploit.com/metasploit-framework.gpg.key
+    # gpg --no-default-keyring --keyring ./metasploit-framework_keyring.gpg --import metasploit-framework.gpg.key
+    # gpg --no-default-keyring --keyring ./metasploit-framework_keyring.gpg --export > ./metasploit-framework.gpg
+    # mv ./metasploit-framework.gpg /etc/apt/trusted.gpg.d/
 
     echo -e "${GREEN}[+] Additional packages and configurations has beed concluded.${NC}"
 
@@ -510,6 +532,7 @@ callInstallTools(){
     Arjun
     Assetfinder
     Burl
+    Brutespray
     ChaosClient
     Collector
     DalFox
@@ -532,20 +555,24 @@ callInstallTools(){
     Haktrails
     Httprobe
     Httpx
+    JohnTheRipper
     JSScanner
     Kiterunner
     LinkFinder
     Mapcidr
     Massdns
+    Masscan
     MegaPy
     Metabigor
     Metasploit
     Naabu
+    Nmap
     Notify
     Nrich
     Nuclei
     ParamSpider
     ShufleDNS
+    Sqlmap
     Sub404
     Subfinder
     Subjs
