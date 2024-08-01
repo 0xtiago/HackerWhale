@@ -34,6 +34,7 @@ setupEnvironment() {
 
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     LOCALPATH=$(pwd)
+    ARCH=$(uname -m)
     TOOLSPATH="/opt/tools"
     WLPATH="/opt/wordlists"
     DIRBINPATH="/usr/local/bin"
