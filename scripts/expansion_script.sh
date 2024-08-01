@@ -52,6 +52,7 @@ setupOSRequirements (){
     #Installing packages
     apt update 
     apt install -y \
+    apt-transport-https \
     ca-certificates \
     curl \
     dos2unix \
@@ -380,11 +381,9 @@ Metabigor(){
 Metasploit(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     cd /tmp 
-    curl https://raw.githubusercontent.com/rapid7/metasploit-framework/master/msf.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/msf-archive-keyring.gpg
-    echo "deb [signed-by=/usr/share/keyrings/msf-archive-keyring.gpg] https://apt.metasploit.com/ focal main" | sudo tee /etc/apt/sources.list.d/metasploit-framework.list
-    apt update
-    apt install -y metasploit-framework
-    msfupdate
+    curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+    chmod 755 msfinstall
+    ./msfinstall
 }
 
 Naabu(){
@@ -572,6 +571,9 @@ PosInstalacao(){
     # gpg --no-default-keyring --keyring ./metasploit-framework_keyring.gpg --import metasploit-framework.gpg.key
     # gpg --no-default-keyring --keyring ./metasploit-framework_keyring.gpg --export > ./metasploit-framework.gpg
     # mv ./metasploit-framework.gpg /etc/apt/trusted.gpg.d/
+
+    # Cleaning
+    rm -rf /tmp/* && rm -rf /var/lib/apt/lists/*
 
     echo -e "${GREEN}[+] Additional packages and configurations has beed concluded.${NC}"
 

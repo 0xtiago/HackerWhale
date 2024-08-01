@@ -6,6 +6,7 @@ RUN echo "HackerWhale" > /etc/hostname
 
 #Default package set
 ENV DEFAULT_PACKAGE_SET="apt update && apt install -y \
+    apt-transport-https \
     zsh \
     git \
     curl \
