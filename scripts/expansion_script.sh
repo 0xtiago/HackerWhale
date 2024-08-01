@@ -396,6 +396,12 @@ ParamSpider(){
     #ln -s ${TOOLSPATH}/ParamSpider/paramspider.py ${DIRBINPATH}/paramspider ## Já está sendo instalado
 }
 
+Prowler(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    pip install prowler
+}
+
+
 PureDNS(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     go install -v github.com/d3mondev/puredns/v2@latest
@@ -571,6 +577,7 @@ callInstallTools(){
     Nrich
     Nuclei
     ParamSpider
+    Prowler
     ShufleDNS
     Sqlmap
     Sub404
