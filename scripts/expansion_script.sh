@@ -469,6 +469,27 @@ Telegram-Send(){
     $PIPCOMMAND telegram-send
 }
 
+Terrascan1.19.1(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    BASE_URL="https://github.com/tenable/terrascan/releases/latest/download"
+    mkdir -p ${TOOLSPATH}/terrascan
+    cd ${TOOLSPATH}/terrascan
+
+    if [ "$ARCH" == "x86_64" ]; then
+    FILE_NAME="terrascan_1.19.1_Linux_x86_64.tar.gz"
+    elif [ [ "$ARCH" == "aarch64" ] || [ "$ARCH" == "arm64" ] ]; then
+        FILE_NAME="terrascan_1.19.1_Linux_arm64.tar.gz"
+    else
+        echo "Arquitetura não suportada: $ARCH"
+    fi
+
+    wget "$BASE_URL/$FILE_NAME"
+    tar xvzf $FILE_NAME
+    chmod +x terrascan
+
+    ln -s ${TOOLSPATH}/terrascan/terrascan ${DIRBINPATH}/terrascan
+}
+
 Trivy(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     sudo apt-get install wget apt-transport-https gnupg
@@ -612,6 +633,7 @@ callInstallTools(){
     Subfinder
     Subjs
     Telegram-Send
+    Terrascan1.19.1
     Trivy
     TurboSearch
     Qsreplace
