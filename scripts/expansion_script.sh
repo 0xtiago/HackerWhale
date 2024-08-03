@@ -653,7 +653,6 @@ callInstallTools(){
     K9s
     Kiterunner
     Kubectl
-    Kubeadm
     # Kube-bench
     # Kube-hunter
     # Kubelinter
