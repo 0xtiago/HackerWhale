@@ -308,6 +308,17 @@ JsubFinder(){
     wget https://raw.githubusercontent.com/ThreatUnkown/jsubfinder/master/.jsf_signatures.yaml && mv .jsf_signatures.yaml ~/.jsf_signatures.yaml
 }
 
+K9s(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    cd ${TOOLSPATH}
+    git clone https://github.com/derailed/k9s.git
+    cd k9s
+    make build
+    chmod +x execs/k9s
+    ln -s ${TOOLSPATH}/k9s/execs/k9s ${DIRBINPATH}/k9s
+   
+}
+
 Kiterunner(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     cd ${TOOLSPATH}
@@ -341,6 +352,7 @@ Kubectl(){
     apt-get install -y kubectl
 
 }
+
 
 
 # Kube-hunter(){
@@ -638,7 +650,9 @@ callInstallTools(){
     Httpx
     JohnTheRipper
     JSScanner
+    K9s
     Kiterunner
+    Kubectl
     # Kube-bench
     # Kube-hunter
     # Kubelinter
