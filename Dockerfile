@@ -10,6 +10,7 @@ ENV DEFAULT_PACKAGE_SET="apt update && apt install -y \
     zsh \
     git \
     curl \
+    file \
     wget \
     lsb-release \
     snapd \
