@@ -349,7 +349,7 @@ Kubectl(){
     echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | tee /etc/apt/sources.list.d/kubernetes.list
     chmod 644 /etc/apt/sources.list.d/kubernetes.list
     apt-get update
-    apt-get install -y kubectl
+    apt-get install -y kubelet kubeadm kubectl
 
 }
 
@@ -653,6 +653,7 @@ callInstallTools(){
     K9s
     Kiterunner
     Kubectl
+    Kubeadm
     # Kube-bench
     # Kube-hunter
     # Kubelinter
