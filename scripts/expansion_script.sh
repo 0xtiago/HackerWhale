@@ -479,6 +479,10 @@ sslscan(){
      apt install -y sslscan
 }
 
+Stress-ng(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install -y stress-ng
+}
 
 
 Sub404(){
@@ -675,6 +679,8 @@ callInstallTools(){
     Sub404
     Subfinder
     Subjs
+    sslscan
+    Stress-ng
     Telegram-Send
     # Terrascan1.19.1
     # Trivy
