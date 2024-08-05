@@ -427,6 +427,11 @@ Naabu(){
     go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 }
 
+Netcat(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install -y netcat-traditional
+}
+
 Nmap(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     apt install -y nmap
@@ -678,6 +683,7 @@ callInstallTools(){
     Metabigor
     Metasploit
     Naabu
+    Netcat
     Nmap
     Notify
     Nrich
