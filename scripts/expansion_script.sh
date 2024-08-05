@@ -34,10 +34,20 @@ setupEnvironment() {
 
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     LOCALPATH=$(pwd)
-    ARCH=$(uname -m)
     TOOLSPATH="/opt/tools"
     WLPATH="/opt/wordlists"
     DIRBINPATH="/usr/local/bin"
+
+    # Identifica arquitetura
+    GETARCH=$(uname -m)    
+    if [ $GETARCH == "x86_64" ]; then
+        ARCH="amd64"
+    elif [ [ $GETARCH == "aarch64" ] || [ $GETARCH == "arm64" ] ]; then
+        ARCH="arm64"
+    else
+        echo "Arquitetura não esperada: $GETARCH"
+    fi
+
 
     #Diretorio de ferramentas
     mkdir -p /opt/tools
