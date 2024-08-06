@@ -40,10 +40,12 @@ setupEnvironment() {
 
     # Identifica arquitetura
     GETARCH=$(uname -m)    
-    if [ $GETARCH == "x86_64" ]; then
+    if [[ $ARCH == 'x86_64' ]] ; then
         ARCH="amd64"
-    elif [ [ $GETARCH == "aarch64" ] || [ $GETARCH == "arm64" ] ]; then
+        echo "Arquitetura identificada: $ARCH"
+    elif [[ $GETARCH == "aarch64"  ||  $GETARCH == "arm64" ]]; then
         ARCH="arm64"
+        echo "Arquitetura identificada: $ARCH"
     else
         echo "Arquitetura não esperada: $GETARCH"
     fi
@@ -642,7 +644,7 @@ callInstallTools(){
     Antiburl
     Arjun
     Assetfinder
-    Burl
+   Burl
     Brutespray
     ChaosClient
     # Chekov
