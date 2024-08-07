@@ -622,6 +622,13 @@ PosInstalacao(){
     # Cleaning
     rm -rf /tmp/* && rm -rf /var/lib/apt/lists/*
 
+    go clean -cache
+    go clean -testcache
+    go clean -fuzzcache
+    go clean -modcache
+
+    pip cache purge
+
     echo -e "${GREEN}[+] Additional packages and configurations has beed concluded.${NC}"
 
 }
@@ -683,7 +690,7 @@ callInstallTools(){
     Masscan
     MegaPy
     Metabigor
-    Metasploit
+    #Metasploit
     Naabu
     Netcat
     Nmap
