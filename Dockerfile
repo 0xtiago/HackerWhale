@@ -13,6 +13,7 @@ ENV DEFAULT_PACKAGE_SET="apt update && apt install -y \
     file \
     wget \
     lsb-release \
+    graphviz \
     snapd \
     python3 \
     python3-pip \

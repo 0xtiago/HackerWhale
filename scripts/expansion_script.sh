@@ -73,6 +73,7 @@ setupOSRequirements (){
     git \
     gnupg2 \
     gpg \
+    graphviz \
     grepcidr \
     gzip \
     htop \
@@ -80,13 +81,14 @@ setupOSRequirements (){
     jq \
     libpcap-dev \
     locate \
+    lsb-release \
     net-tools \
     p7zip \
     prips \
     python3-pip \
     python-is-python3 \
     ruby-dev \
-    snap \
+    snapd \
     tmux \
     vim \
     vim-nox \
