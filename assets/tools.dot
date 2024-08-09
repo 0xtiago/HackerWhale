@@ -1,5 +1,6 @@
 digraph G {
     layout=circo;
+    bgcolor="transparent";
     node [shape=box, fontsize=12, style=filled];
     graph [overlap=false, splines=true, fontname=Helvetica, fontsize=10];
     edge [color=grey, arrowsize=0.5];

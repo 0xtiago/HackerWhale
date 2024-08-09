@@ -9,12 +9,12 @@ png_file="../assets/tools_map.png"
 markdown_file="../assets/tools_list.md"
 
 # Cores personalizadas
-color_letters="yellow"              # Cor das letras (nível intermediário)
-color_functions="lightslateblue"    # Cor das funções
-color_edges="grey"                  # Cor das arestas
-color_background="transparent"      # Cor de fundo (se necessário)
+color_letters="yellow"                  # Cor das letras (nível intermediário)
+color_functions="lightslateblue"        # Cor das funções
+color_edges="grey"                      # Cor das arestas
+color_background="transparent"          # Cor de fundo transparente
 
-# Detecta o sistema operacional e definir o comando grep apropriado do grep
+# Detecta o sistema operacional e define o comando grep apropriado
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     grep_command="grep -oP '^\s*\K\w+'"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -28,6 +28,7 @@ fi
 {
     echo "digraph G {"
     echo "    layout=circo;"
+    echo "    bgcolor=\"$color_background\";"  # Define o fundo transparente
     echo "    node [shape=box, fontsize=12, style=filled];"
     echo "    graph [overlap=false, splines=true, fontname=Helvetica, fontsize=10];"
     echo "    edge [color=$color_edges, arrowsize=0.5];"
@@ -40,19 +41,19 @@ inside_function=false
 letters=()
 functions=()
 
-# Lê arquivo linha por linha e armazenar funções em arrays
+# Lê o arquivo linha por linha e armazena as funções em arrays
 while IFS= read -r line; do
-    # Remover espaços em branco no início e no fim da linha
+    # Remove espaços em branco no início e no fim da linha
     line=$(echo "$line" | xargs)
     
-    # Verifica início da função callInstallTools
+    # Verifica o início da função callInstallTools
     if [[ "$line" == "callInstallTools(){" ]]; then
         inside_function=true
         echo "Encontrado início de callInstallTools"
         continue
     fi
 
-    # Verifica fim da função callInstallTools
+    # Verifica o fim da função callInstallTools
     if [[ $inside_function == true && "$line" == "}" ]]; then
         inside_function=false
         echo "Encontrado fim de callInstallTools"
