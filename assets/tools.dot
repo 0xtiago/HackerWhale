@@ -24,103 +24,103 @@ digraph G {
         W [fillcolor=yellow];
     };
     A -> {
-        Altdns [fillcolor=lightblue];
-        Alterx [fillcolor=lightblue];
-        Amass [fillcolor=lightblue];
-        Anew [fillcolor=lightblue];
-        Antiburl [fillcolor=lightblue];
-        Arjun [fillcolor=lightblue];
-        Assetfinder [fillcolor=lightblue];
+        Altdns [fillcolor=lightslateblue];
+        Alterx [fillcolor=lightslateblue];
+        Amass [fillcolor=lightslateblue];
+        Anew [fillcolor=lightslateblue];
+        Antiburl [fillcolor=lightslateblue];
+        Arjun [fillcolor=lightslateblue];
+        Assetfinder [fillcolor=lightslateblue];
     };
     B -> {
-        Burl [fillcolor=lightblue];
-        Brutespray [fillcolor=lightblue];
+        Burl [fillcolor=lightslateblue];
+        Brutespray [fillcolor=lightslateblue];
     };
     C -> {
-        ChaosClient [fillcolor=lightblue];
-        Collector [fillcolor=lightblue];
+        ChaosClient [fillcolor=lightslateblue];
+        Collector [fillcolor=lightslateblue];
     };
     D -> {
-        DalFox [fillcolor=lightblue];
-        Dirsearch [fillcolor=lightblue];
-        Dnsx [fillcolor=lightblue];
-        DNSValidator [fillcolor=lightblue];
+        DalFox [fillcolor=lightslateblue];
+        Dirsearch [fillcolor=lightslateblue];
+        Dnsx [fillcolor=lightslateblue];
+        DNSValidator [fillcolor=lightslateblue];
     };
     F -> {
-        ffuf [fillcolor=lightblue];
-        Findomains [fillcolor=lightblue];
+        ffuf [fillcolor=lightslateblue];
+        Findomains [fillcolor=lightslateblue];
     };
     G -> {
-        Gau [fillcolor=lightblue];
-        Gauplus [fillcolor=lightblue];
-        Gf [fillcolor=lightblue];
-        GithubSearch [fillcolor=lightblue];
-        GitDorker [fillcolor=lightblue];
-        GitDumper [fillcolor=lightblue];
-        GoogleChrome [fillcolor=lightblue];
-        GoSpider [fillcolor=lightblue];
-        Gowitness [fillcolor=lightblue];
+        Gau [fillcolor=lightslateblue];
+        Gauplus [fillcolor=lightslateblue];
+        Gf [fillcolor=lightslateblue];
+        GithubSearch [fillcolor=lightslateblue];
+        GitDorker [fillcolor=lightslateblue];
+        GitDumper [fillcolor=lightslateblue];
+        GoogleChrome [fillcolor=lightslateblue];
+        GoSpider [fillcolor=lightslateblue];
+        Gowitness [fillcolor=lightslateblue];
     };
     H -> {
-        Hakrawler [fillcolor=lightblue];
-        Hakrevdns [fillcolor=lightblue];
-        Haktrails [fillcolor=lightblue];
-        Httprobe [fillcolor=lightblue];
-        Httpx [fillcolor=lightblue];
+        Hakrawler [fillcolor=lightslateblue];
+        Hakrevdns [fillcolor=lightslateblue];
+        Haktrails [fillcolor=lightslateblue];
+        Httprobe [fillcolor=lightslateblue];
+        Httpx [fillcolor=lightslateblue];
     };
     J -> {
-        JohnTheRipper [fillcolor=lightblue];
-        JSScanner [fillcolor=lightblue];
+        JohnTheRipper [fillcolor=lightslateblue];
+        JSScanner [fillcolor=lightslateblue];
     };
     K -> {
-        K9s [fillcolor=lightblue];
-        Kiterunner [fillcolor=lightblue];
-        Kubectl [fillcolor=lightblue];
+        K9s [fillcolor=lightslateblue];
+        Kiterunner [fillcolor=lightslateblue];
+        Kubectl [fillcolor=lightslateblue];
     };
     L -> {
-        LinkFinder [fillcolor=lightblue];
+        LinkFinder [fillcolor=lightslateblue];
     };
     M -> {
-        Mapcidr [fillcolor=lightblue];
-        Massdns [fillcolor=lightblue];
-        Masscan [fillcolor=lightblue];
-        MegaPy [fillcolor=lightblue];
-        Metabigor [fillcolor=lightblue];
+        Mapcidr [fillcolor=lightslateblue];
+        Massdns [fillcolor=lightslateblue];
+        Masscan [fillcolor=lightslateblue];
+        MegaPy [fillcolor=lightslateblue];
+        Metabigor [fillcolor=lightslateblue];
     };
     N -> {
-        Naabu [fillcolor=lightblue];
-        Netcat [fillcolor=lightblue];
-        Nmap [fillcolor=lightblue];
-        Notify [fillcolor=lightblue];
-        Nrich [fillcolor=lightblue];
-        Nuclei [fillcolor=lightblue];
+        Naabu [fillcolor=lightslateblue];
+        Netcat [fillcolor=lightslateblue];
+        Nmap [fillcolor=lightslateblue];
+        Notify [fillcolor=lightslateblue];
+        Nrich [fillcolor=lightslateblue];
+        Nuclei [fillcolor=lightslateblue];
     };
     P -> {
-        ParamSpider [fillcolor=lightblue];
+        ParamSpider [fillcolor=lightslateblue];
     };
     Q -> {
-        Qsreplace [fillcolor=lightblue];
+        Qsreplace [fillcolor=lightslateblue];
     };
     S -> {
-        ShufleDNS [fillcolor=lightblue];
-        Sqlmap [fillcolor=lightblue];
-        Sub404 [fillcolor=lightblue];
-        Subfinder [fillcolor=lightblue];
-        Subjs [fillcolor=lightblue];
-        sslscan [fillcolor=lightblue];
-        Stress_ng [fillcolor=lightblue];
+        ShufleDNS [fillcolor=lightslateblue];
+        Sqlmap [fillcolor=lightslateblue];
+        Sub404 [fillcolor=lightslateblue];
+        Subfinder [fillcolor=lightslateblue];
+        Subjs [fillcolor=lightslateblue];
+        sslscan [fillcolor=lightslateblue];
+        Stress_ng [fillcolor=lightslateblue];
     };
     T -> {
-        Telegram_Send [fillcolor=lightblue];
-        TurboSearch [fillcolor=lightblue];
+        Telegram_Send [fillcolor=lightslateblue];
+        TurboSearch [fillcolor=lightslateblue];
     };
     U -> {
-        Unfurl [fillcolor=lightblue];
-        Uro [fillcolor=lightblue];
+        Unfurl [fillcolor=lightslateblue];
+        Uro [fillcolor=lightslateblue];
     };
     W -> {
-        Waybackurls [fillcolor=lightblue];
-        wafw00f [fillcolor=lightblue];
-        WPScan [fillcolor=lightblue];
+        Waybackurls [fillcolor=lightslateblue];
+        wafw00f [fillcolor=lightslateblue];
+        WPScan [fillcolor=lightslateblue];
     };
 }

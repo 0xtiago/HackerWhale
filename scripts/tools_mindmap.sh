@@ -8,6 +8,12 @@ output_file="../assets/tools.dot"
 png_file="../assets/tools_map.png"
 markdown_file="../assets/tools_list.md"
 
+# Cores personalizadas
+color_letters="yellow"              # Cor das letras (nível intermediário)
+color_functions="lightslateblue"    # Cor das funções
+color_edges="grey"                  # Cor das arestas
+color_background="transparent"      # Cor de fundo (se necessário)
+
 # Detecta o sistema operacional e definir o comando grep apropriado do grep
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     grep_command="grep -oP '^\s*\K\w+'"
@@ -24,7 +30,7 @@ fi
     echo "    layout=circo;"
     echo "    node [shape=box, fontsize=12, style=filled];"
     echo "    graph [overlap=false, splines=true, fontname=Helvetica, fontsize=10];"
-    echo "    edge [color=grey, arrowsize=0.5];"
+    echo "    edge [color=$color_edges, arrowsize=0.5];"
 } > $output_file
 
 # Variável para controle interno da função callInstallTools
@@ -75,7 +81,7 @@ letters=($(printf "%s\n" "${letters[@]}" | sort))
 {
     echo "    Tools -> {"
     for letter in "${letters[@]}"; do
-        echo "        $letter [fillcolor=yellow];"
+        echo "        $letter [fillcolor=$color_letters];"
     done
     echo "    };"
 
@@ -84,7 +90,7 @@ letters=($(printf "%s\n" "${letters[@]}" | sort))
         for entry in "${functions[@]}"; do
             if [[ "$entry" == "$letter "* ]]; then
                 func_name=$(echo "$entry" | awk '{print $2}')
-                echo "        $func_name [fillcolor=lightblue];"
+                echo "        $func_name [fillcolor=$color_functions];"
             fi
         done
         echo "    };"
