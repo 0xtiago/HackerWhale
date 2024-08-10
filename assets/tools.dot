@@ -31,6 +31,7 @@ digraph G {
         Anew [fillcolor=lightslateblue];
         Antiburl [fillcolor=lightslateblue];
         Arjun [fillcolor=lightslateblue];
+        arp_scan [fillcolor=lightslateblue];
         Assetfinder [fillcolor=lightslateblue];
     };
     B -> {

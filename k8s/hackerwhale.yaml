@@ -2,8 +2,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: hackerwhale
-  labels:
-    app: hackerwhale
 spec:
   containers:
     - name: hackerwhale
@@ -11,3 +9,16 @@ spec:
       command: ["/bin/zsh", "-c", "while true; do sleep 30; done;"]
       tty: true
       stdin: true
+      volumeMounts:
+        - name: kubeconfig
+          mountPath: /root/.kube/config
+          subPath: config
+        - name: minikube-certificates
+          mountPath: /etc/kubernetes/certs
+  volumes:
+    - name: kubeconfig
+      secret:
+        secretName: kubeconfig-secret
+    - name: minikube-certificates
+      secret:
+        secretName: minikube-certificates
