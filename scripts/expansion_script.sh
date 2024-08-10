@@ -135,6 +135,11 @@ Arjun(){
     $PIPCOMMAND arjun
 }
 
+arp-scan(){
+    echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
+    apt install -y arp-scan
+}
+
 Assetfinder(){
     echo -e "${RED}[+]${FUNCNAME[0]}${NC}"
     go install -v github.com/tomnomnom/assetfinder@latest
@@ -652,8 +657,9 @@ callInstallTools(){
     Anew
     Antiburl
     Arjun
+    arp-scan
     Assetfinder
-   Burl
+    Burl
     Brutespray
     ChaosClient
     # Chekov
