@@ -1,68 +1,66 @@
-# Lista de Funções
-
-As funções listadas no arquivo `../assets/tools.dot` são:
-
-- Altdns
-- Alterx
-- Amass
-- Anew
-- Antiburl
-- Arjun
-- Assetfinder
-- Burl
-- Brutespray
-- ChaosClient
-- Collector
-- DalFox
-- Dirsearch
-- Dnsx
-- DNSValidator
-- ffuf
-- Findomains
-- Gau
-- Gauplus
-- Gf
-- GithubSearch
-- GitDorker
-- GitDumper
-- GoogleChrome
-- GoSpider
-- Gowitness
-- Hakrawler
-- Hakrevdns
-- Haktrails
-- Httprobe
-- Httpx
-- JohnTheRipper
-- JSScanner
-- K9s
-- Kiterunner
-- Kubectl
-- LinkFinder
-- Mapcidr
-- Massdns
-- Masscan
-- MegaPy
-- Metabigor
-- Naabu
-- Netcat
-- Nmap
-- Notify
-- Nrich
-- Nuclei
-- ParamSpider
-- Qsreplace
-- ShufleDNS
-- Sqlmap
-- Sub404
-- Subfinder
-- Subjs
-- sslscan
-- Stress_ng
-- Telegram_Send
-- TurboSearch
-- Unfurl
-- Uro
-- Waybackurls
-- wafw00f
-- WPScan
+| #   | Tool          |
+| --- | ------------- |
+| 1.  | Altdns        |
+| 2.  | Alterx        |
+| 3.  | Amass         |
+| 4.  | Anew          |
+| 5.  | Antiburl      |
+| 6.  | Arjun         |
+| 7.  | Assetfinder   |
+| 8.  | Burl          |
+| 9.  | Brutespray    |
+| 10. | ChaosClient   |
+| 11. | Collector     |
+| 12. | DalFox        |
+| 13. | Dirsearch     |
+| 14. | Dnsx          |
+| 15. | DNSValidator  |
+| 16. | ffuf          |
+| 17. | Findomains    |
+| 18. | Gau           |
+| 19. | Gauplus       |
+| 20. | Gf            |
+| 21. | GithubSearch  |
+| 22. | GitDorker     |
+| 23. | GitDumper     |
+| 24. | GoogleChrome  |
+| 25. | GoSpider      |
+| 26. | Gowitness     |
+| 27. | Hakrawler     |
+| 28. | Hakrevdns     |
+| 29. | Haktrails     |
+| 30. | Httprobe      |
+| 31. | Httpx         |
+| 32. | JohnTheRipper |
+| 33. | JSScanner     |
+| 34. | K9s           |
+| 35. | Kiterunner    |
+| 36. | Kubectl       |
+| 37. | LinkFinder    |
+| 38. | Mapcidr       |
+| 39. | Massdns       |
+| 40. | Masscan       |
+| 41. | MegaPy        |
+| 42. | Metabigor     |
+| 43. | Naabu         |
+| 44. | Netcat        |
+| 45. | Nmap          |
+| 46. | Notify        |
+| 47. | Nrich         |
+| 48. | Nuclei        |
+| 49. | ParamSpider   |
+| 50. | Qsreplace     |
+| 51. | ShufleDNS     |
+| 52. | Sqlmap        |
+| 53. | Sub404        |
+| 54. | Subfinder     |
+| 55. | Subjs         |
+| 56. | sslscan       |
+| 57. | Stress_ng     |
+| 58. | Telegram_Send |
+| 59. | TurboSearch   |
+| 60. | Unfurl        |
+| 61. | Uro           |
+| 62. | Waybackurls   |
+| 63. | wafw00f       |
+| 64. | WPScan        |

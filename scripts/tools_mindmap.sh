@@ -103,17 +103,17 @@ letters=($(printf "%s\n" "${letters[@]}" | sort))
 echo "Conteúdo do arquivo .dot gerado:"
 cat $output_file
 
-# Gera o arquivo .md com a lista de funções
+# Gera o arquivo .md com a lista de funções no formato de tabela
 {
-    echo "# Lista de Funções"
-    echo ""
-    echo "As funções listadas no arquivo \`$output_file\` são:"
-    echo ""
+    echo "|  #  | Tool |"
+    echo "|-----|---------|"
+    count=1
     for letter in "${letters[@]}"; do
         for entry in "${functions[@]}"; do
             if [[ "$entry" == "$letter "* ]]; then
                 func_name=$(echo "$entry" | awk '{print $2}')
-                echo "- $func_name"
+                echo "|  $count. | $func_name  |"
+                ((count++))
             fi
         done
     done
