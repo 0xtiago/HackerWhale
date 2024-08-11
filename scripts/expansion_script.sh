@@ -636,6 +636,9 @@ PosInstalacao(){
 
     pip cache purge
 
+    # Fix httpx (Go)
+    pip uninstall --break-system-packages httpx
+
     echo -e "${GREEN}[+] Additional packages and configurations has beed concluded.${NC}"
 
 }

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hackerwhale
+  name: hackerwhale-minikube
 spec:
   containers:
     - name: hackerwhale
@@ -10,15 +10,15 @@ spec:
       tty: true
       stdin: true
       volumeMounts:
-        - name: kubeconfig
+        - name: minikube-kubeconfig
           mountPath: /root/.kube/config
           subPath: config
         - name: minikube-certificates
           mountPath: /etc/kubernetes/certs
   volumes:
-    - name: kubeconfig
+    - name: minikube-kubeconfig
       secret:
-        secretName: kubeconfig-secret
+        secretName: minikube-kubeconfig-secret
     - name: minikube-certificates
       secret:
         secretName: minikube-certificates
