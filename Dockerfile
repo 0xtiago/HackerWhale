@@ -1,4 +1,9 @@
 FROM ubuntu:24.04
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      ca-certificates curl gnupg bash sudo coreutils \
+    && rm -rf /var/lib/apt/lists/*
 
 # Hostname
 RUN echo "HackerWhale" > /etc/hostname
@@ -85,3 +90,10 @@ CMD ["tail", "-f", "/dev/null"]
 # docker build --build-arg EXPANSION_SCRIPT_LOCAL=expansion_script.sh -t hackerwhale .
 # docker build --build-arg EXPANSION_SCRIPT_URL=https://github.com/0xtiago/expansion_script.sh -t hackerwhale .
 
+
+RUN set -eux; \
+    mkdir -p /etc/apt/keyrings; \
+    curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg; \
+    chmod 0644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg; \
+    echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' > /etc/apt/sources.list.d/kubernetes.list
+ENTRYPOINT ["/bin/bash"]
